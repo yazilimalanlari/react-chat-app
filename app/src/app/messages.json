@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Abdulbaki",
+        "lastMessageDate": "20:05",
+        "messages": [
+            {
+
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Bilinmeyen",
+        "lastMessageDate": "20:05",
+        "messages": [
+            {
+                
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Bilinir",
+        "lastMessageDate": "20:05",
+        "messages": [
+            {
+                
+            }
+        ]
+    }
+]
