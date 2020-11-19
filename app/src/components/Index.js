@@ -1,28 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import List from '@components/global/List';
 
-import Messages from '@app/messages';
-
-import { useDispatch } from 'react-redux';
+// Redux
+import { connect, useDispatch } from 'react-redux';
+import { getMessages, setMessageDetails } from '@app/actions/messages';
 import { changePage } from '@app/actions/app';
 
-function Index() {
+function Index({ messages, getMessages, changePage }) {
     const dispatch = useDispatch();
+    const onPress = userId => {
+        dispatch(setMessageDetails(userId));
+        changePage('messages');
+    }
 
-    const onPress = () => dispatch(changePage('messages'));
+    useEffect(() => {
+        getMessages();
+    }, []);
+
 
     return (
         <List>
             {
-                Messages.map(message => <List.Item
+                messages.map(message => <List.Item
                     key={message.id} 
                     title={message.name}
-                    onPress={onPress}
+                    time={message.lastMessageTime}
+                    message={message.messages[message.messages.length - 1].message}
+                    onPress={() => onPress(message.id)}
                 />)
             }
         </List>
     )
 }
 
-
-export default Index;
+const mapStateToProps = ({ messages }) => ({ messages: messages.allMessages });
+export default connect(mapStateToProps, { getMessages, changePage }) (Index);

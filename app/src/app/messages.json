@@ -2,30 +2,87 @@
     {
         "id": 1,
         "name": "Abdulbaki",
-        "lastMessageDate": "20:05",
+        "lastMessageTime": "15:25",
         "messages": [
             {
-
+                "id": 1,
+                "message": "Merhaba",
+                "time": "20:05"
+            },
+            {
+                "id": 2,
+                "message": "Merhaba nasılsın?",
+                "owner": true,
+                "time": "15:25"
+            },
+            {
+                "id": 3,
+                "message": "Daha sonra görüşürüz.",
+                "time": "18:24"
+            },
+            {
+                "id": 4,
+                "message": "Tamam görüşürüz.",
+                "owner": true,
+                "time": "18:25"
             }
         ]
     },
     {
         "id": 2,
         "name": "Bilinmeyen",
-        "lastMessageDate": "20:05",
+        "lastMessageTime": "18:26",
         "messages": [
             {
-                
+                "id": 1,
+                "message": "Merhaba",
+                "time": "20:05"
+            },
+            {
+                "id": 2,
+                "message": "Merhaba nasılsın?",
+                "owner": true,
+                "time": "15:25"
+            },
+            {
+                "id": 3,
+                "message": "Daha sonra görüşürüz.",
+                "time": "18:24"
+            },
+            {
+                "id": 4,
+                "message": "Tamam görüşürüz.",
+                "owner": true,
+                "time": "18:25"
             }
         ]
     },
     {
         "id": 3,
         "name": "Bilinir",
-        "lastMessageDate": "20:05",
+        "lastMessageTime": "14:02",
         "messages": [
             {
-                
+                "id": 1,
+                "message": "Merhaba",
+                "time": "20:05"
+            },
+            {
+                "id": 2,
+                "message": "Merhaba nasılsın?",
+                "owner": true,
+                "time": "15:25"
+            },
+            {
+                "id": 3,
+                "message": "Daha sonra görüşürüz.",
+                "time": "18:24"
+            },
+            {
+                "id": 4,
+                "message": "Tamam görüşürüz.",
+                "owner": true,
+                "time": "18:25"
             }
         ]
     }

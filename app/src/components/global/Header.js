@@ -9,7 +9,7 @@ import SettingsIcon from '@icons/Settings';
 
 // Redux
 import { connect } from 'react-redux';
-import { changePage } from '@app/actions/app';
+import { changePage, changePageBack } from '@app/actions/app';
 
 
 function ActionList({ changePage, close }) {
@@ -44,21 +44,20 @@ function ActionList({ changePage, close }) {
     )
 }
 
-function Header({ page, lastPage, changePage }) {
+function Header({ page, changePage, changePageBack, title }) {
     const [actionList, setActionList] = useState(false);
     const openActionList = () => setActionList(!actionList);
-    
-    const onBack = () => changePage(lastPage ?? 'index');
 
     return (
         <View style={Style.header}>
-            {page !== 'index' && <TouchableNativeFeedback onPress={onBack}>
+            {page !== 'index' && <TouchableNativeFeedback onPress={changePageBack}>
                 <ArrowBack 
                     width={30}
                     height={30}
                     style={Style.arrowBackIcon}
                 />
             </TouchableNativeFeedback>}
+            {title && <Text style={Style.headerTitle}>{title}</Text>}
             <TouchableNativeFeedback onPress={openActionList}>
                 <Action 
                     width={30}
@@ -71,8 +70,8 @@ function Header({ page, lastPage, changePage }) {
     )
 }
 
-const mapStateToProps = ({ app }) => ({ 
-    page: app.page,
-    lastPage: app.lastPage
+const mapStateToProps = state => ({ 
+    page: state.app.page,
+    title: state.app.page === 'messages' ? state.messages.detailMessageList.name : null
 });
-export default connect(mapStateToProps, { changePage })(Header);
+export default connect(mapStateToProps, { changePage, changePageBack })(Header);

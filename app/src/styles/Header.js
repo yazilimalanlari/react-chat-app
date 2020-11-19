@@ -43,5 +43,11 @@ export default StyleSheet.create({
         fontFamily,
         fontSize: 18,
         marginLeft: 5
+    },
+    headerTitle: {
+        color,
+        fontFamily,
+        fontSize: 25,
+        marginLeft: 10
     }
 });

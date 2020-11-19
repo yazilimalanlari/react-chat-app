@@ -1,47 +1,54 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ScrollView, View, Text } from 'react-native';
 
 import Style from '@styles/Messages';
 
+// Redux
+import { getMessageDetails } from '@app/actions/messages';
+import { connect, useSelector } from 'react-redux';
+
 function Item({ 
     title,
-    messageOwner 
+    message,
+    messageOwner,
+    time
 }) {
     return (
         <View style={[Style.item, messageOwner && Style.messageOwner]}>
             <View style={Style.messageTitleWrapper}>
-                <Text style={Style.messageTitle}>{messageOwner ? 'Ben' : (title ?? 'Bilinmeyen')}</Text>
-                <Text style={Style.messageTime}>20:05</Text>
+                <Text style={Style.messageTitle}>{messageOwner ? 'Ben' : title}</Text>
+                <Text style={Style.messageTime}>{time}</Text>
             </View>
             <Text style={[Style.messageContent]}>
-                Merhaba nasılsın?
+                {message}
             </Text>
         </View>
     )
 }
 
-function List() {
+function List({ messages, getMessageDetails }) {
+    const scrollView = useRef();
+    
+    useEffect(() => {
+        getMessageDetails();
+    }, []);
+
+    useEffect(() => {
+        scrollView.current.scrollToEnd();
+    }, [messages])
+
     return (
-        <ScrollView>
-            <Item />
-            <Item />
-            <Item />
-            <Item
-                title={"Abdulbaki"}
-                messageOwner={true}
-            />
-            <Item />
-            {/* <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item /> */}
+        <ScrollView ref={scrollView}>
+            {messages.messages.map(message => <Item 
+                key={message.id}
+                title={messages.name}
+                message={message.message}
+                messageOwner={message.owner}
+                time={message.time}
+            />)}
         </ScrollView>
     )
 }
 
-export default List;
+const mapStateToProps = state => ({ messages: state.messages.detailMessageList });
+export default connect(mapStateToProps, { getMessageDetails }) (List);

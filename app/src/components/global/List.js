@@ -10,15 +10,21 @@ function List({ children }) {
     )
 }
 
-List.Item = ({ title, onPress }) => {
+List.Item = ({ 
+    title,
+    time,
+    lastMessage,
+    message,
+    onPress 
+}) => {
     return (
         <TouchableHighlight onPress={onPress}>
             <View style={Style.item}>
                 <View style={Style.itemTitleWrapper}>
                     <Text style={Style.itemTitle}>{title}</Text>
-                    <Text style={Style.itemTime}>20:05</Text>
+                    <Text style={Style.itemTime}>{time}</Text>
                 </View>
-                <Text style={Style.itemContent}>Burası yazılan mesajın kendisi.</Text>
+                <Text style={Style.itemContent}>{message}</Text>
             </View>
         </TouchableHighlight>
     )

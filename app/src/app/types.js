@@ -1,5 +1,12 @@
 // App
 export const APP_CHANGE_PAGE = 'APP_CHANGE_PAGE';
+export const APP_CHANGE_PAGE_BACK = 'APP_CHANGE_PAGE_BACK';
 
 // User
 export const USER_SAVE = 'USER_SAVE';
+
+// Messages
+export const GET_MESSAGES = 'GET_MESSAGES';
+export const SEND_MESSAGE = 'SEND_MESSAGE';
+export const SET_MESSAGE_DETAILS = 'SET_MESSAGE_DETAILS';
+export const GET_MESSAGE_DETAILS = 'GET_MESSAGE_DETAILS';
